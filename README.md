@@ -4,7 +4,7 @@ hobby
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <div title="내 홈피"></div>
+    <div title="내 홈피"> 내 홈피 </div>
 </head>
 <body>
     <h1>안녕, 내 홈페이지!</h1>
