@@ -315,8 +315,31 @@
         @keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-5px);} }
 
         .music-player {
-            position: fixed; bottom: 20px; left: 20px; background: rgba(255,255,255,0.7);
-            padding: 10px; border-radius: 10px; display: flex; align-items: center; gap: 10px;
+            position: absolute;
+            bottom: 30px;
+            left: 40px;
+            right: 40px;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 10px 15px;
+            display: flex;
+            align-items; center;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 20;
+        }
+
+        .music-player b {
+            font-size: 1rem;
+            color: #3d5a80;
+        }
+
+        .music-player .controls {
+            margin-left: auto;
+            font-size: 1.2rem;
+            color: #666;
+            cursor: pointer;
         }
 
         .back-link {
@@ -412,6 +435,15 @@
                 flex: 0 0 80px;
                 height: 220px;
             }
+
+            .music-player {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                margin: 20px auto;
+                width: 80%;
+            }
         }
     </style>
 </head>
@@ -422,11 +454,6 @@
     <div class="made-by">Made By Binil ✨</div>
     <div class="nav-bar">
         <span onclick="location.reload()">Home</span><span>Couple</span><span onclick="openModal()">Story</span><span>Note</span><span>About</span>
-    </div>
-
-    <div class="music-player">
-        <img src="small-icon.png" width="30"> <div><b>주다스야</b><br>사랑해</div>
-        <span>◀ ❚❚ ▶</span>
     </div>
 
     <a href="index.html" class="back-link">← Back to Home</a>
@@ -454,6 +481,12 @@
                     <img src="image/Rie.jpeg" id="img-iris" alt="Iris">
                     <div class="day-tag" id="aurora-tag">♡Rie</div>
                 </div>
+                
+                <div class="music-player">
+                    <img src="small-icon.png" width="30"> <div><b>주다스야</b><br>사랑해</div>
+                    <span>◀ ❚❚ ▶</span>
+                </div>
+                
             </div>
 
             <div class="page-right">
