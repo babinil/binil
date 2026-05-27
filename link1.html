@@ -350,23 +350,19 @@
         .timeline { margin-top: 30px; border-top: 1px dashed #ccc; padding-top: 15px; }
         .timeline-bar { display: flex; justify-content: space-between; margin-top: 10px; }
 
-       @media (max-width: 1100px) {
+        @media (max-width: 1100px) {
             body {
                 overflow-y: auto;
-                height: auto;
-                padding: 20px 10px
-                display: block;
+                align-items: flex-start;
+                padding: 60px 10px;
             }
-
-           .made-by { position: relative !important; text-align: center; margin-bottom: 10px; }
-           .nav-bar { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; margin-bottom: 10px; }
-           .back-link { position: relative !important; top: 0 !important; right: 0 !important; display: block; text-align: center; margin-bottom: 20px; }
         
             .diary-container {
-                width: 95%;
-                margin: 0 auto;
+                width: 100%;
                 height: auto;
-                max-width: none;
+                max-width: 500px;
+                animation: none;
+                margin-top: 50px;
             }
         
             .diary-wrapper {
@@ -379,12 +375,14 @@
 
             .page-left{
                 width: 100%;
-                padding: 20px;
-                border: none;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                box-sizing: border-box;
+                padding-top: 250px;
+                padding-bottom: 30px;
                 position: relative;
+                display: flex;
+                justify-content: center;
+                border-right: none;
+                border-bottom: 1px solid #eee;
             }
 
             .page-left .sticker {
@@ -412,14 +410,10 @@
             .p-judas { top: 40px; left: 15%; transform: rotate(-5deg); z-index: 11; }
             .p-iris { top: 60px; left: 45%; transform: rotate(7deg); z-index: 12; }
         
-           .page-right {width: 100%; padding: 20px;} 
-           .index-tabs {
-               position: relative;
-               top: 0;
-               left: 0;
-               display: flex;
-               justify-content: center;
-               margin-bottom: 20px;
+            .index-tabs {
+                top: 60px;
+                left: 20px;
+                gap: 5px;
             }
         
             .tab {
@@ -445,10 +439,22 @@
 
             .music-player {
                 position: relative;
-                margin: 20px auto;
                 bottom: auto;
                 left: auto;
-                width: 90%;
+                right: auto;
+                margin: 20px auto;
+                width: 80%;
+            }
+
+            .nav-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0 10px;
+            }
+
+            .back-link {
+                top: 50px;
+                font-size: 0.9rem;
             }
         }
 
