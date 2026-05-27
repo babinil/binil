@@ -352,64 +352,112 @@
 
        @media (max-width: 1100px) {
             body {
-                overflow-y: auto !important;
-                height: auto !important;
-                display: block !important;
-                padding: 80px 10px 20px 10px;
+                overflow-y: auto;
+                align-items: flex-start;
+                padding: 60px 10px;
             }
         
             .diary-container {
-                width: 100% !important;
-                height: auto !important;
-                margin: 0 auto !important;
-                animation: none !important;
+                width: 100%;
+                height: auto;
+                max-width: 500px;
+                animation: none;
+                margin-top: 50px;
             }
         
             .diary-wrapper {
-                flex-direction: column !important;
-                height: auto !important;
-            }
-        
-            .page-left, .page-right {
-                width: 100% !important;
-                height: auto !important;
-                padding: 20px !important;
-                box-sizing: border-box;
-                border: none !important;
-            }
-        
-            .page-left {
-                display: flex;
                 flex-direction: column;
-                align-items: center;
-                position: relative !important;
-                min-height: 450px;
             }
         
-            .photo-frame {
-                position: relative !important;
-                top: auto !important;
-                left: auto !important;
-                margin: 10px auto !important;
-                transform: none !important;
+            .diary-wrapper::after {
+                display: none;
             }
+
+            .page-left{
+                width: 100%;
+                box-sizing: border-box;
+                padding-top: 250px;
+                padding-bottom: 30px;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            .page-left .sticker {
+                display: none;
+            }
+        
+            .page-right {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 30px 20px;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            .photo-frame {
+                position: absolute;
+            }
+        
+            .photo-frame img {
+                width: 130px; 
+                height: 160px;
+                object-fit: cover;
+            }
+        
+            .p-judas { top: 40px; left: 15%; transform: rotate(-5deg); z-index: 11; }
+            .p-iris { top: 60px; left: 45%; transform: rotate(7deg); z-index: 12; }
         
             .index-tabs {
-                position: relative !important;
-                top: 0 !important;
-                left: 0 !important;
-                justify-content: center;
-                margin-bottom: 20px;
+                top: 60px;
+                left: 20px;
+                gap: 5px;
             }
         
+            .tab {
+                width: 60px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+        
+            .modal-content {
+                width: 95%;
+                padding: 20px 10px;
+            }
+        
+            .bookmark-container {
+                gap: 8px;
+                min-height: 250px;
+            }
+        
+            .bookmark {
+                flex: 0 0 80px;
+                height: 220px;
+            }
+
             .music-player {
-                position: relative !important;
-                bottom: auto !important;
-                left: auto !important;
-                margin: 20px auto !important;
-                width: 90% !important;
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                margin: 20px auto;
+                width: 80%;
+            }
+
+            .nav-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0 10px;
+            }
+
+            .back-link {
+                top: 50px;
+                font-size: 0.9rem;
             }
         }
+
     </style>
 </head>
 <body>
