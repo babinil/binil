@@ -1,11 +1,129 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빙점(氷點)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --outer-bg: #e6e9ef;
+            --paper-color: #ffffff;
+            --text-main: #2f3640;
+            --font-main: 'Nanum Pen Script', cursive;
+            --font-serif: 'Nanum Myeongjo', serif;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh;
+            background-color: var(--outer-bg);
+            font-family: var(--font-main);
+            overflow: hidden;
+        }
+
+        #snow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+
+        .container {
+            width: 1000px; height: 600px;
+            background: var(--paper-color);
+            display: flex;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* 우측 상단 Back to Home */
+        .back-link {
+            position: absolute; top: 20px; right: 20px;
+            font-size: 1.2rem; text-decoration: none; color: #888;
+        }
+
+        .page-left { flex: 1; position: relative; border-right: 1px solid #eee; }
+        .page-right { flex: 1; padding-left: 40px; }
+
+        /* 폴라로이드 사진 영역 */
+        .photo-frame {
+            background: #fff; padding: 15px 15px 40px 15px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            position: absolute;
+            width: 200px;
+        }
+        .p-judas { top: 20px; left: 30px; transform: rotate(-5deg); }
+        .p-iris { top: 180px; left: 130px; transform: rotate(5deg); }
+        .photo-frame img { width: 100%; height: 200px; object-fit: cover; }
+        .name-tag { font-size: 1.5rem; margin-top: 10px; }
+
+        /* 음악 플레이어 */
+        .music-player { position: absolute; bottom: 50px; left: 30px; display: flex; align-items: center; gap: 10px; }
+
+        /* 우측 텍스트 영역 */
+        .title { font-size: 3rem; margin: 0; }
+        .subtitle { font-family: var(--font-serif); font-size: 1.1rem; color: #666; margin-top: 10px; }
+        .tags { margin-top: 20px; color: #555; }
+        
+        .timeline { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; }
+        .timeline-item { margin-bottom: 10px; display: flex; gap: 20px; }
+    </style>
 </head>
 <body>
-  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <h1>준비 중</h1>
-  </div>
+
+    <canvas id="snow"></canvas>
+    
+    <a href="#" class="back-link">← Back to Home</a>
+
+    <div class="container">
+        <div class="page-left">
+            <div class="photo-frame p-judas">
+                <img src="image/J26.jpeg" alt="Judas">
+                <div class="name-tag">♡ Judas</div>
+            </div>
+            <div class="photo-frame p-iris">
+                <img src="image/Rie.jpeg" alt="Iris">
+                <div class="name-tag">♡ Iris</div>
+            </div>
+            
+            <div class="music-player">
+                <span>▶</span> <div><strong>Now Playing</strong><br>Evanescent - Sleep Dealer</div>
+            </div>
+        </div>
+
+        <div class="page-right">
+            <h1 class="title">Judas & Iris</h1>
+            <p class="subtitle">"Two people who ruined each other to save each other."</p>
+            
+            <div class="tags">#Rescue #Guardian #Cohabitation #Destruction</div>
+
+            <div class="timeline">
+                <div class="timeline-item"><span>D+0</span> <span>First Meeting</span></div>
+                <div class="timeline-item"><span>D+127</span> <span>The Day Memory Lost</span></div>
+                <div class="timeline-item"><span>D+316</span> <span>The Night We Met Again</span></div>
+                <div class="timeline-item"><span>D+???</span> <span>The Beginning of the End</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('snow');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for(let i=0; i<100; i++) particles.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*3+1, d: Math.random()});
+        }
+        function draw() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+            ctx.beginPath();
+            for(let p of particles) {
+                ctx.moveTo(p.x, p.y); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+                p.y += 1; if(p.y > canvas.height) p.y = -10;
+            }
+            ctx.fill();
+        }
+        init(); setInterval(draw, 33);
+    </script>
 </body>
+</html>
