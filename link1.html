@@ -302,6 +302,31 @@
             font-weight: bold;
         }
 
+        .nav-bar {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 30px; font-size: 1.2rem; cursor: pointer; z-index: 100;
+        }
+
+        .made-by {
+            position: fixed; top: 20px; left: 20px; font-weight: bold; cursor: pointer;
+            transition: transform 0.3;
+        }
+        .made-by:hover { animation: bounce 0.5s infinite; }
+        @keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-5px);} }
+
+        .music-player {
+            position: fixed; bottom: 20px; left: 20px; background: rgba(255,255,255,0.7);
+            padding: 10px; border-radius: 10px; display: flex; align-items: center; gap: 10px;
+        }
+
+        .more-btn {
+            position: fixed; bottom: 20px; right: 20px; padding: 10px 20px;
+            background: #fff; border: 1px solid #ccc; border-radius: 5px; cursor: pointer;
+        }
+
+        .timeline { margin-top: 30px; border-top: 1px dashed #ccc; padding-top: 15px; }
+        .timeline-bar { display: flex; justify-content: space-between; margin-top: 10px; }
+
         @media (max-width: 1100px) {
             body {
                 overflow-y: auto;
@@ -393,6 +418,28 @@
 <body>
 
     <canvas id="snow"></canvas>
+
+    <div class="made-by">Made By Binil ✨</div>
+    <div class="nav-bar">
+        <span>Home</span><span>Couple ♥</span><span onclick="openModal()">Story</span><span>Note</span><span>About</span>
+    </div>
+
+    <div class="timeline">
+        <div style="font-weight: bold;">Our Story ✿</div>
+        <div class="timeline-bar">
+            <span>D+0<br>test</span>
+            <span>D+1<br>test</span>
+            <span>D+2<br>test</span>
+            <span>D+3<br>test</span>
+        </div>
+    </div>
+
+    <div class="music-player">
+        <img src="small-icon.png" width="30"> <div><b>Evanescent</b><br>Sleep Dealer</div>
+        <span>◀ ❚❚ ▶</span>
+    </div>
+
+    <div class="more-btn" onclick="location.reload()">← Back to Home</div>
 
     <div class="diary-container">
         <div class="index-tabs">
